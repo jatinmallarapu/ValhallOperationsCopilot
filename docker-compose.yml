@@ -1,0 +1,33 @@
+# The default deployment stays local and requires no model or CDF credentials.
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: copilot
+      POSTGRES_PASSWORD: local_demo
+      POSTGRES_DB: copilot
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U copilot"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    volumes: ["procedures:/var/lib/postgresql/data"]
+  index:
+    build: .
+    command: ["python","-m","app.index_docs"]
+    environment:
+      PROCEDURE_DATABASE_URL: postgresql://copilot:local_demo@db:5432/copilot
+    depends_on:
+      db:
+        condition: service_healthy
+  app:
+    build: .
+    ports: ["127.0.0.1:8000:8000"]
+    environment:
+      LLM_PROVIDER: extractive
+      PROCEDURE_DATABASE_URL: postgresql://copilot:local_demo@db:5432/copilot
+    depends_on:
+      index:
+        condition: service_completed_successfully
+volumes:
+  procedures:

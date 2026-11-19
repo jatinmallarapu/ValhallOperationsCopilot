@@ -1,0 +1,7 @@
+{
+  "questions": 20,
+  "routing_accuracy": 1.0,
+  "expected_tool_rate": 1.0,
+  "mean_response_ms": 61.766015001921915,
+  "scope": "Curated synthetic offline routing regression. No external LLM or CDF calls."
+}
