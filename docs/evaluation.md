@@ -20,6 +20,10 @@ No operational ground truth or approved maintenance documents are present.
 
 Unit/API tests cover scope boundaries, graph/tool traces, empty windows, malformed
 requests, synthetic document labels, cyclic asset rejection and a mocked CDF
-hourly aggregate read. CI additionally builds the production React image and
+hourly aggregate read. Provider wire contracts are checked with an in-memory HTTP
+transport for OpenAI-compatible, Azure and Ollama requests; no live generation is
+claimed. The evaluation command explicitly selects the bundled corpus and
+extractive writer, preventing private environment settings from changing its scope.
+CI additionally builds the production React image and
 exercises the pgvector Compose stack. The CI result is independent of any claim
 about live CDF access or LLM answer quality.

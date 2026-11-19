@@ -1,6 +1,7 @@
 """Measure routing and evidence traces on the checked-in question set."""
 
 import json
+import os
 from pathlib import Path
 from time import perf_counter
 
@@ -9,6 +10,10 @@ from fastapi.testclient import TestClient
 
 
 def main():
+    # Evaluation must not inherit credentialed providers or a private CDF snapshot.
+    os.environ["COPILOT_DATA"] = "data/demo.json"
+    os.environ["LLM_PROVIDER"] = "extractive"
+    os.environ.pop("PROCEDURE_DATABASE_URL", None)
     rows = json.loads(Path("backend/tests/eval_questions.json").read_text())
     times = []
     correct = 0

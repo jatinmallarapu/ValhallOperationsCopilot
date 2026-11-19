@@ -22,10 +22,13 @@ in this build. This is a personal project, not affiliated with Cognite or Aker B
 | Routing regression | 20/20 | Expected specialist on curated, known questions |
 | Tool trace regression | 20/20 | Expected tool actually executed |
 | Mean full response | 61.77 ms | Local in-process synthetic replay, extractive writer |
+| Software checks | 17 tests + Ruff + mypy | API, provider contracts and data boundaries |
+| Container integration | Passed in GitHub Actions | Production React build, SSE and PostgreSQL/pgvector retrieval |
 | Live CDF access | Not verified | Requires user-issued credentials |
 | Industrial anomaly accuracy / LLM faithfulness | Not measured | Requires independent labels and provider evaluation |
 
 See [evaluation protocol](docs/evaluation.md) for the limitations of these numbers.
+The initial measurement is preserved in [routing-results.json](docs/routing-results.json).
 
 ## Why build this?
 
