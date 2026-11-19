@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What sensors are on this compressor?",
+    "route": "assets",
+    "tool": "get_timeseries_for_asset"
+  },
+  {
+    "question": "Show the child subsystems.",
+    "route": "assets",
+    "tool": "get_children"
+  },
+  {
+    "question": "Find the compressor asset.",
+    "route": "assets",
+    "tool": "find_asset"
+  },
+  {
+    "question": "List linked instruments.",
+    "route": "assets",
+    "tool": "get_timeseries_for_asset"
+  },
+  {
+    "question": "Which equipment is below this asset?",
+    "route": "assets",
+    "tool": "get_children"
+  },
+  {
+    "question": "Were there unusual pressure spikes?",
+    "route": "timeseries",
+    "tool": "detect_anomalies"
+  },
+  {
+    "question": "Show temperature statistics.",
+    "route": "timeseries",
+    "tool": "compute_stats"
+  },
+  {
+    "question": "What is the average flow?",
+    "route": "timeseries",
+    "tool": "compute_stats"
+  },
+  {
+    "question": "Find vibration anomalies.",
+    "route": "timeseries",
+    "tool": "detect_anomalies"
+  },
+  {
+    "question": "Show pressure datapoints.",
+    "route": "timeseries",
+    "tool": "get_datapoints"
+  },
+  {
+    "question": "Find the discharge temperature alarm procedure.",
+    "route": "docs",
+    "tool": "search_docs"
+  },
+  {
+    "question": "Show the vibration maintenance checklist.",
+    "route": "docs",
+    "tool": "search_docs"
+  },
+  {
+    "question": "Find instructions for sensor quality review.",
+    "route": "docs",
+    "tool": "search_docs"
+  },
+  {
+    "question": "Which document discusses seal gas?",
+    "route": "docs",
+    "tool": "search_docs"
+  },
+  {
+    "question": "Find the pressure alarm manual.",
+    "route": "docs",
+    "tool": "search_docs"
+  },
+  {
+    "question": "Summarize compressor health for my VP.",
+    "route": "report",
+    "tool": "compute_stats"
+  },
+  {
+    "question": "Give an executive overview.",
+    "route": "report",
+    "tool": "get_timeseries_for_asset"
+  },
+  {
+    "question": "Create a health report.",
+    "route": "report",
+    "tool": "compute_stats"
+  },
+  {
+    "question": "Summarize this equipment.",
+    "route": "report",
+    "tool": "get_children"
+  },
+  {
+    "question": "Give a snapshot summary.",
+    "route": "report",
+    "tool": "compute_stats"
+  }
+]

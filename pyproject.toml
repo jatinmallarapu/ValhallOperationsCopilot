@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "valhall-ops-copilot"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1", "httpx>=0.28,<1",
+  "pydantic>=2.10,<3", "langgraph>=1,<2", "numpy>=1.26,<3",
+  "psycopg[binary]>=3.2,<4", "scikit-learn>=1.5,<2"]
+
+[project.optional-dependencies]
+cdf = ["cognite-sdk>=7.80,<8", "pyarrow>=19,<25"]
+dev = ["pytest>=8,<10", "mypy>=1.15,<2", "ruff>=0.11,<1"]
+
+[tool.setuptools.packages.find]
+where = ["backend"]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["backend/tests"]
+
+[tool.mypy]
+python_version = "3.12"
+check_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100

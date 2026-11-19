@@ -1,0 +1,15 @@
+# Keep CDF credentials, retrieved industrial data and local builds private.
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+runs/
+data/cache/
+frontend/node_modules/
+frontend/dist/
+*.egg-info/
